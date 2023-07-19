@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <title>DATE</title>
+    <head>
+        <style>
+        .ti{
+         font-size: 30px;
+         font-family: 'Times New Roman', Times, serif;
+         color: aquamarine;
+         text-shadow: 0 5px 15px green;
+        }
+        .tab{
+            margin: auto;
+            color: aquamarine;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            height:350px;
+            width:650px;
+        }
+        .tie{
+         margin:auto;
+         display: flex;
+         text-align: center;
+         align-items: center;
+         background-color: black;
+         font-family: 'Times New Roman', Times, serif;
+         font-size: 115px;
+         font-style: bold;
+         text-shadow: 0 5px 25px green;
+         color: aqua;
+         border: 10px;
+         border-style: double;
+         border-radius: 20px;
+         border-color: blue;
+         height:100%;
+         width:100%;
+         animation: anim 5s ease-in-out infinite;
+        }
+        @keyframes anim {
+         0%{
+            filter: hue-rotate(0deg);
+         }  
+         100%{
+            filter: hue-rotate(360deg);
+         }    
+        }
+         .tide{
+         text-align: center;
+         font-size: 20px;
+         letter-spacing: 0.2em;
+         font-family: 'Times New Roman', Times, serif;
+         width:100%;
+         color: aqua;
+         text-shadow: 0 5px 35px green;
+         border: 10px;
+         border-radius: 20px;
+         border-style: double;
+         border-color: rgb(72, 177, 130);
+         align-items: center;
+         background-color:black;
+         }
+        </style>
+    </head>
+    <body bgcolor="black">
+   <p class="ti" id="date"></p>
+   <p class="ti" id="tim"></p>
+   <table class="tab">
+    <tr><td><center><input class="tide" type="text" id="tid"  disabled/></center></td></tr>
+    <tr><td><input class="tie" type="text" id="tit"  disabled/></td></tr>
+    </table>
+    </body>
+    <script>
+    setInterval(time,1000)
+    function time(){
+        var we=["Sunday","Monday","Tueday","Wednesday","Thursday","Friay","Saturday"];
+        var mon=["January","February","March","April","May","June","July","August","September","October","November","December"];
+        const x=new Date();
+        day=x.getDay();
+        nam=x.getMonth();
+        document.getElementById("date").innerHTML=(x.getDate()+" / "+mon[nam]+" / "+x.getFullYear()+"    "+we[day]);
+        document.getElementById("tim").innerHTML=x.toLocaleTimeString();
+        document.getElementById("tid").value=(x.getDate()+" / "+mon[nam]+" / "+x.getFullYear()+"    "+we[day]);
+        document.getElementById("tit").value=x.toLocaleTimeString();
+    }
+    </script>
+    </html>
